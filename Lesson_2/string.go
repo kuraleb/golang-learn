@@ -4,5 +4,8 @@ import "fmt"
 
 func main() {
 	a := "qwerty"
-	fmt.Println(a)
+	b := "text"
+	c := "tехt"
+	fmt.Println(a[0])
+	fmt.Println(" ", len(b), "\n ", len(c))
 }
