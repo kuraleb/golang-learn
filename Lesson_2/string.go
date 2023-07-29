@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"unicode/utf8"
+)
 
 func main() {
 	a := "qwerty"
@@ -8,4 +11,7 @@ func main() {
 	c := "tехt"
 	fmt.Println(a[0])
 	fmt.Println(" ", len(b), "\n ", len(c))
+
+	aUTF8 := utf8.RuneCountInString(b)
+	fmt.Println(" ", aUTF8)
 }
