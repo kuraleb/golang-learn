@@ -27,16 +27,23 @@ func main() {
 			fmt.Println("Введите логин и пароль в таком виде \"login_password\":")
 			fmt.Scan(&command) // Сделать так, что бы выводил сообщение, если пользователь уже существует
 			userList = append(userList, command)
+			message:= fmt.Sprintf("Пользователь %v успешно добавлен", command)
+			fmt.Println(message)
 		case auth: 
 		fmt.Println("Введите логин и пароль в таком виде \"login_password\":")
 		fmt.Scan(&command) 
-			for _, v := range userList {
-				if v == command {
-					fmt.Println("Добро пожаловать в магазин!")
-					break
-				}
-				fmt.Println("Вы не зарегистрированы")
-			}
+		for _, v := range userList {
+			if v == command {
+				fmt.Println("Добро пожаловать в магазин!")
+				continue
+			} 
+		}
+		fmt.Println("Вы не зарегистрированы")
 		}
 	}
 }
+
+// Реализовать следующий API
+// add_product - добавляет продукт в список продуктов, который вводится с консоли в ProductList
+// order - выводит сообщение, что купили и очищает корзину
+// show_cart - выводит список продуктов в корзине
