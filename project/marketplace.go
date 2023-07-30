@@ -16,8 +16,18 @@ func main() {
 
 	_= productList
 
+	commandList := []string{
+		"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+		"Вам доступны следующие команды:",
+		"auth - авторизация в магазине",
+		"reg - регистрация ",
+		"exit - выход из магазина",
+	}
 	for command != exit{
-		fmt.Println("Введите команду:") // Сделать красивый вывод, вывести список команд на этом шаге
+		for _, v := range commandList {
+			fmt.Println(v)
+		}
+		fmt.Println("Введите команду:")
 		fmt.Scan(&command)
 
 		switch command {
@@ -26,17 +36,29 @@ func main() {
 		case reg:
 			fmt.Println("Введите логин и пароль в таком виде \"login_password\":")
 			fmt.Scan(&command) // Сделать так, что бы выводил сообщение, если пользователь уже существует
-			userList = append(userList, command)
-			message:= fmt.Sprintf("Пользователь %v успешно добавлен", command)
-			fmt.Println(message)
+			for _, v := range userList {
+				i := 0
+				if v == command {
+					i++
+					fmt.Println("Пользователь уже существует")	
+				}
+				if i == 0 {
+					userList = append(userList, command)
+					message:= fmt.Sprintf("Пользователь %v успешно добавлен", command)
+					fmt.Println(message)
+				}
+				else {
+					return()
+				}
+			}
 		case auth: 
 		fmt.Println("Введите логин и пароль в таком виде \"login_password\":")
 		fmt.Scan(&command) 
-		for _, v := range userList {
-			if v == command {
-				fmt.Println("Добро пожаловать в магазин!")
-			} 
-		}
+		// for _, v := range userList {
+		if v == command {
+			fmt.Println("Добро пожаловать в магазин!")
+		} 
+		// }
 		fmt.Println("Вы не зарегистрированы") // Сделать так, что бы выводил сообщение, если пользователь не существует
 		}
 	}
