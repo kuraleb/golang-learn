@@ -41,14 +41,12 @@ func main() {
 				if v == command {
 					i++
 					fmt.Println("Пользователь уже существует")	
+					return
 				}
-				if i == 0 {
+				else {
 					userList = append(userList, command)
 					message:= fmt.Sprintf("Пользователь %v успешно добавлен", command)
 					fmt.Println(message)
-				}
-				else {
-					return()
 				}
 			}
 		case auth: 

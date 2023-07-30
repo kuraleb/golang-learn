@@ -13,6 +13,8 @@ func main() {
 	fmt.Scan(&number2)
 	if number1 > number2 {
 		fmt.Println("a больше b")
+	} else if number1 == number2 {
+		fmt.Println("a равно b")
 	} else {
 		fmt.Println("b больше a")
 	}
